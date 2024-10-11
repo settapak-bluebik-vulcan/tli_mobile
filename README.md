@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -58,6 +58,24 @@ Now that you have successfully run the app, let's modify it.
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
+
+# ข้อความ Commit ที่ถูกต้อง
+
+เพื่อให้แน่ใจว่าข้อความ commit ของคุณมีความสอดคล้องตามมาตรฐาน Conventional Commits โปรดใช้รูปแบบต่อไปนี้:
+
+### ตัวอย่างข้อความ commit ที่ถูกต้อง
+
+- `feat: add new authentication method  // ฟีเจอร์ใหม่`
+- `fix: resolve issue with user profile loading // แก้ไขบั๊ก`
+- `docs: update README for installation instructions // เปลี่ยนแปลงเฉพาะเอกสาร`
+- `style: fix whitespace issues in code // เปลี่ยนแปลงที่ไม่กระทบกับความหมายของโค้ด (เช่น การจัดรูปแบบ)`
+- `refactor: simplify user login logic // เปลี่ยนแปลงโค้ดที่ไม่แก้ไขบั๊กและไม่เพิ่มฟีเจอร์ใหม่`
+- `perf: optimize image loading speed // ปรับปรุงประสิทธิภาพ`
+- `test: add unit tests for new feature // เพิ่มการทดสอบที่ขาดหายไปหรือแก้ไขการทดสอบที่มีอยู่`
+- `build: update build scripts for compatibility // เปลี่ยนแปลงที่ส่งผลกระทบต่อระบบการสร้างหรือการพึ่งพาภายนอก`
+- `ci: configure GitHub Actions for CI/CD // เปลี่ยนแปลงไฟล์และสคริปต์การตั้งค่า CI`
+- `chore: update dependencies  // เปลี่ยนแปลงอื่นๆ ที่ไม่แก้ไขไฟล์ src หรือ test`
+- `revert: undo commit abc1234 // ย้อนกลับการ commit ก่อนหน้า`
 
 ### Now what?
 
