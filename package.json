@@ -18,12 +18,15 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "start": "react-native start",
+    "format": "prettier --write . --config ./.prettierrc.js",
+    "format:check": "prettier --check . --config ./.prettierrc.js",
     "test": "jest",
     "commit": "npx cz",
     "prepare": "husky install"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hook-form": "^0.3.0",
     "react": "18.3.1",
     "react-hook-form": "^7.53.0",
@@ -70,11 +73,11 @@
   "lint-staged": {
     "*.ts": [
       "prettier --write",
-      "eslint --fix"
+      "eslint ./src --fix"
     ],
     "*.tsx": [
       "prettier --write",
-      "eslint --fix"
+      "eslint ./src --fix"
     ]
   }
 }

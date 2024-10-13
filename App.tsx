@@ -54,8 +54,7 @@ function App() {
           <Button
             mode="contained"
             onPress={handleSubmit(onSubmit)}
-            style={{ marginTop: 20 }}
-          >
+            style={{ marginTop: 20 }}>
             ส่งข้อมูล
           </Button>
         </View>

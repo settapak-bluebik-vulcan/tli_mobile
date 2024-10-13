@@ -25,7 +25,8 @@ export default [
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:react-hook-form/recommended'
+    'plugin:react-hook-form/recommended',
+    'prettier'
   ),
   {
     languageOptions: {
@@ -35,7 +36,7 @@ export default [
       ecmaVersion: 2020, // หรือปรับตามที่คุณต้องการ
       sourceType: 'module', // ปรับตามที่คุณใช้
       parserOptions: {
-        project: 'tsconfig.json',
+        project: './tsconfig.json',
       },
     },
     rules: {
