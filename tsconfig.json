@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "strict": true
+    "strict": true,
+    "typeRoots": ["./node_modules/@types"]
   },
   "extends": "@react-native/typescript-config/tsconfig.json",
   "exclude": ["__tests__/**/*-test.ts","node_modules/*"]

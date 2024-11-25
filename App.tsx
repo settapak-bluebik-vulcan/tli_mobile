@@ -1,66 +1,40 @@
 import React from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { View } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { Button, TextInput } from 'react-native-paper';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { testSchema, TtestSchema } from './src/models/schemas/test.schema';
+import {
+  NativeBaseProvider,
+  Text,
+  Box,
+  extendTheme,
+  Button,
+} from 'native-base';
 
-function App() {
-  const { control, handleSubmit } = useForm<TtestSchema>({
-    resolver: zodResolver(testSchema),
+export default function App() {
+  const theme = extendTheme({
+    components: {
+      Button: {
+        variants: {
+          primary: {
+            bg: '#FC8C0C',
+            _text: {
+              color: 'white',
+            } as React.CSSProperties,
+          },
+        },
+
+        baseStyle: {
+          rounded: 'md',
+        },
+      },
+    },
   });
 
-  const onSubmit = (data: unknown) => {
-    console.log(data);
-  };
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1 }}>
-        <View>
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                label="ชื่อ"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                mode="outlined"
-              />
-            )}
-            name="name"
-            rules={{ required: true }}
-            defaultValue=""
-          />
-
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                label="อีเมล"
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                mode="outlined"
-                keyboardType="email-address"
-              />
-            )}
-            name="email"
-            rules={{ required: true }}
-            defaultValue=""
-          />
-
-          <Button
-            mode="contained"
-            onPress={handleSubmit(onSubmit)}
-            style={{ marginTop: 20 }}>
-            ส่งข้อมูล
-          </Button>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NativeBaseProvider theme={theme}>
+      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
+        <Text>Open up App.js to start working on your app!</Text>
+        <Button variant="primary" color="blue.200">
+          Hello
+        </Button>
+      </Box>
+    </NativeBaseProvider>
   );
 }
-
-export default App;

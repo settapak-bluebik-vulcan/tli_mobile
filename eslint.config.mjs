@@ -12,9 +12,10 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-const GLOBALS_BROWSER_FIX = Object.assign({}, globals.browser, {
+const GLOBALS_BROWSER_FIX = {
+  ...globals.browser,
   AudioWorkletGlobalScope: globals.browser['AudioWorkletGlobalScope '],
-});
+};
 
 delete GLOBALS_BROWSER_FIX['AudioWorkletGlobalScope '];
 
@@ -47,6 +48,9 @@ export default [
       'react-hooks/rules-of-hooks': 'error',
       '@typescript-eslint/no-misused-promises': 'off',
       'linebreak-style': 0,
+      'react/jsx-props-no-spreading': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      'import/prefer-default-export': 'off',
     },
   },
 ];
