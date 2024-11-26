@@ -5,7 +5,7 @@ import { useAuthStore } from '@stores';
 import { RootStackParamList } from 'src/navigations/root-navigation';
 
 const useViewModel = () => {
-  const { removeTokens } = useAuthStore();
+  const { removeTokens, accessToken, refreshToken } = useAuthStore();
 
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -13,7 +13,7 @@ const useViewModel = () => {
     navigation.navigate(UnAuthScreens.DEVTOOLS);
   };
 
-  return { onPressDevtools, removeTokens };
+  return { onPressDevtools, removeTokens, accessToken, refreshToken };
 };
 
 export default useViewModel;

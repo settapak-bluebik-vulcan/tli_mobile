@@ -4,9 +4,13 @@ import { Button, View } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import useViewModel from './viewmodel';
 import { useAuthStore } from '@stores';
+import { useTranslation } from 'react-i18next';
 
 function HomeScreen() {
-  const { onPressDevtools, removeTokens } = useViewModel();
+  const { onPressDevtools, removeTokens, accessToken, refreshToken } =
+    useViewModel();
+
+  const { t } = useTranslation()
 
   return (
     <View
@@ -17,7 +21,10 @@ function HomeScreen() {
         alignItems: 'center',
         gap: 10,
       }}>
-      <Button onPress={removeTokens}>Logout</Button>
+      <Text>accessToken : {accessToken} </Text>
+      <Text>refreshToken : {refreshToken} </Text>
+
+      <Button onPress={removeTokens}>{t('common.logout')}</Button>
 
       <Button
         variant="primary"
