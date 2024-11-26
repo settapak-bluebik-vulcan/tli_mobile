@@ -1,11 +1,11 @@
 import React from 'react';
+import { NativeBaseProvider, extendTheme } from 'native-base';
 import {
-  NativeBaseProvider,
-  Text,
-  Box,
-  extendTheme,
-  Button,
-} from 'native-base';
+  initialWindowMetrics,
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import RootNavigation from './navigations/root-navigation';
 
 export default function App() {
   const theme = extendTheme({
@@ -29,12 +29,11 @@ export default function App() {
 
   return (
     <NativeBaseProvider theme={theme}>
-      <Box flex={1} bg="#fff" alignItems="center" justifyContent="center">
-        <Text>Open up App.js to start working on your app!</Text>
-        <Button variant="primary" color="blue.200">
-          Hello
-        </Button>
-      </Box>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <GestureHandlerRootView>
+          <RootNavigation />
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
     </NativeBaseProvider>
   );
 }

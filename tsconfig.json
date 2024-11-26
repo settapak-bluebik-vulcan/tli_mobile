@@ -1,9 +1,17 @@
 {
+  "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
     "jsx": "react",
-    "strict": true,
-    "typeRoots": ["./node_modules/@types"]
-  },
-  "extends": "@react-native/typescript-config/tsconfig.json",
-  "exclude": ["__tests__/**/*-test.ts","node_modules/*"]
+    "baseUrl": ".",
+    "paths": {
+      "@components": ["src/components"],
+      "@constants": ["src/constants"],
+      "@utils": ["src/utils"],
+      "@assets": ["src/assets"],
+      "@stores": ["src/stores"],
+      "@hooks": ["src/hooks"],
+      "@types": ["src/types"],
+      "@models": ["src/models"],
+    }
+  }
 }
