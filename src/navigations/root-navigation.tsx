@@ -5,19 +5,25 @@ import React from 'react';
 
 import { AuthStackParamList, UnAuthStackParamList } from '@types';
 import { UnAuthScreens } from '@constants';
-import DevToolsScreen from 'src/screens/devtools/devtools-screen';
 import AuthStack from './auth-stack';
+import { useAuthStore } from '@stores';
+import UnAuthStack from './un-auth-stack';
+import DevToolsScreen from '../screens/devtools/devtools-screen';
 
 export type RootStackParamList = AuthStackParamList & UnAuthStackParamList;
 
 export const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigation() {
+  const authStore = useAuthStore();
+
+  console.log(authStore.accessToken);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <>
-          {AuthStack()}
+          {authStore?.accessToken ? AuthStack() : UnAuthStack()}
 
           <Stack.Screen
             name={UnAuthScreens.DEVTOOLS}

@@ -51,6 +51,12 @@ export default [
       'react/jsx-props-no-spreading': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       'import/prefer-default-export': 'off',
+      'import/export': 0,
+      '@typescript-eslint/no-explicit-any': 'error',
+      'no-console': 'error',
+      'react-native/no-unused-styles': 'error',
+      '@typescript-eslint/no-unused-vars': 'error',
+      'react-hooks/exhaustive-deps': 'off',
     },
   },
 ];
