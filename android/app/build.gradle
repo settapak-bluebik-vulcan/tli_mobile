@@ -84,6 +84,9 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [
+                appAuthRedirectScheme: 'com.tli_mobile'
+        ]
     }
     signingConfigs {
         debug {
@@ -104,6 +107,9 @@ android {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
