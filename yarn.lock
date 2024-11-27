@@ -10708,6 +10708,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-config@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "react-native-config@npm:1.5.3"
+  peerDependencies:
+    react-native-windows: ">=0.61"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 0eb74e0a10ae6e96422671482da83dea16571f4f5ad848d1f18015dccbecb9cbc066788df72a88c630abf4aed0edb7616ec27704817cff18bd6ed7d61979d671
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:^2.21.2":
   version: 2.21.2
   resolution: "react-native-gesture-handler@npm:2.21.2"
@@ -12145,6 +12157,7 @@ __metadata:
     react-hook-form: ^7.53.0
     react-i18next: ^15.1.1
     react-native: 0.75.4
+    react-native-config: ^1.5.3
     react-native-gesture-handler: ^2.21.2
     react-native-health: ^1.19.0
     react-native-health-connect: ^3.3.1
