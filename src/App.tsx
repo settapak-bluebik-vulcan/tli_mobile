@@ -12,6 +12,12 @@ import AppleHealthKit, {
   HealthValue,
   HealthKitPermissions,
 } from 'react-native-health';
+import { Platform } from 'react-native';
+import {
+  initialize,
+  readRecords,
+  requestPermission,
+} from 'react-native-health-connect';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -23,7 +29,7 @@ export default function App() {
     },
   } as HealthKitPermissions;
 
-  useEffect(() => {
+  const initHealthKit = () => {
     AppleHealthKit.initHealthKit(permissions, (error: string) => {
       if (error) {
         console.log('ERROR Cannot grant permissions ', error);
@@ -37,6 +43,38 @@ export default function App() {
         console.log({ results });
       });
     });
+  };
+
+  const initHealthConnect = async () => {
+    // initialize the client
+    await initialize();
+
+    // request permissions
+    await requestPermission([
+      { accessType: 'read', recordType: 'Steps' },
+      {
+        accessType: 'write',
+        recordType: 'Steps',
+      },
+    ]);
+
+    const result = await readRecords('Steps', {
+      timeRangeFilter: {
+        operator: 'between',
+        startTime: '2024-01-01T12:00:00.405Z',
+        endTime: '2024-10-16T23:53:15.405Z',
+      },
+    });
+
+    console.log('Steps -> ', result.records);
+  };
+
+  useEffect(() => {
+    if (Platform.OS === 'ios') {
+      initHealthKit();
+    } else {
+      initHealthConnect();
+    }
   }, []);
 
   const theme = extendTheme({
