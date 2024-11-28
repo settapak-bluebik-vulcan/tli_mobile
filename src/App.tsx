@@ -19,6 +19,9 @@ import {
   requestPermission,
 } from 'react-native-health-connect';
 
+import Config from 'react-native-config';
+import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
+
 export default function App() {
   const [ready, setReady] = useState(false);
 
@@ -112,6 +115,7 @@ export default function App() {
     <NativeBaseProvider theme={theme}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <GestureHandlerRootView>
+          <NetworkDebugModal />
           <RootNavigation />
         </GestureHandlerRootView>
       </SafeAreaProvider>

@@ -10720,6 +10720,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-device-info@npm:^14.0.1":
+  version: 14.0.1
+  resolution: "react-native-device-info@npm:14.0.1"
+  peerDependencies:
+    react-native: "*"
+  checksum: d381cc0d21da1d86fe8f9bfdd36ffd1c37a78cefbf89d3716b72a58ee4ebdfa44af47f51aeda5e613c15bd54d78ff0e43048a369eda86f391356351f0ed78462
+  languageName: node
+  linkType: hard
+
 "react-native-gesture-handler@npm:^2.21.2":
   version: 2.21.2
   resolution: "react-native-gesture-handler@npm:2.21.2"
@@ -10754,6 +10763,16 @@ __metadata:
   peerDependencies:
     react-native: ">=0.67.3"
   checksum: dfdf5af2b6741cbd7c2c5fa7d94f1a78ff6091fb59df2906219bee100fc4ad55c9506bfb2f25a9c2bd25f7606823537e4b382fe3e27638c7779fedf3e3d8f51c
+  languageName: node
+  linkType: hard
+
+"react-native-network-logger@npm:^1.17.0":
+  version: 1.17.0
+  resolution: "react-native-network-logger@npm:1.17.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 3024fb8b091483130186d47a6570bd5a66e0bc207a6a5ca78608b94609d4b02ff52462327bbd1b135f9b5b56a9b221849c1ddcf1703c4238e952d48d1fb98d73
   languageName: node
   linkType: hard
 
@@ -12158,9 +12177,11 @@ __metadata:
     react-i18next: ^15.1.1
     react-native: 0.75.4
     react-native-config: ^1.5.3
+    react-native-device-info: ^14.0.1
     react-native-gesture-handler: ^2.21.2
     react-native-health: ^1.19.0
     react-native-health-connect: ^3.3.1
+    react-native-network-logger: ^1.17.0
     react-native-reanimated: ^3.16.2
     react-native-safe-area-context: ^4.14.0
     react-native-screens: ^4.3.0
