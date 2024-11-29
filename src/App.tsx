@@ -21,6 +21,7 @@ import {
 
 import Config from 'react-native-config';
 import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
+import { initAPI } from './services/API';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -100,6 +101,7 @@ export default function App() {
   });
 
   const init = async () => {
+    initAPI(Config.API_URL);
     await i18nextConfig.initalizeI18Next();
     setReady(true);
   };
