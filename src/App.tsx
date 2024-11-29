@@ -22,6 +22,8 @@ import {
 import Config from 'react-native-config';
 import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
 import { initAPI } from './services/API';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ErrorBoundary from './components/share/error-boundary.tsx/error-boundary';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -113,13 +115,20 @@ export default function App() {
   if (!ready) {
     return <></>;
   }
+
+  const queryClient = new QueryClient();
+
   return (
     <NativeBaseProvider theme={theme}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <GestureHandlerRootView>
-          <NetworkDebugModal />
-          <RootNavigation />
-        </GestureHandlerRootView>
+        <ErrorBoundary>
+          <GestureHandlerRootView>
+            <NetworkDebugModal />
+            <QueryClientProvider client={queryClient}>
+              <RootNavigation />
+            </QueryClientProvider>
+          </GestureHandlerRootView>
+        </ErrorBoundary>
       </SafeAreaProvider>
     </NativeBaseProvider>
   );

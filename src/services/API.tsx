@@ -30,7 +30,7 @@ export const initAPI = (apiUrl?: string) => {
   API.interceptors.response.use(
     response => {
       // if success return response
-      if (response.data.status === 200) return response;
+      if (response.status === 200) return response;
 
       throw new AxiosError(
         response.statusText,

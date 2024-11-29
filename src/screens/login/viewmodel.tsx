@@ -1,14 +1,22 @@
-import { View, Text } from 'react-native';
-import React from 'react';
 import { useAuthStore } from '@stores';
+import { useAuthRepository } from '../../services/auth/auth.repository';
 
 const useViewModel = () => {
   const { setTokens } = useAuthStore();
 
-  const onLogin = () => {
+  const { login } = useAuthRepository();
+
+  const { mutateAsync } = login;
+
+  const onLogin = async () => {
+    const resp = await mutateAsync({
+      username: 'emilys',
+      password: 'emilyspass',
+    });
+
     setTokens({
-      accessToken: 'testAccessToken',
-      refreshToken: 'testRefreshToken',
+      accessToken: resp.data.accessToken,
+      refreshToken: resp.data.refreshToken,
     });
   };
 
