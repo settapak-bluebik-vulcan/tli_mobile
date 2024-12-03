@@ -41,6 +41,15 @@
                 <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="net.openid.appauth.RedirectUriReceiverActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tliapp" android:host="callback" />
+            </intent-filter>
+        </activity>
         <activity-alias
             android:name="ViewPermissionUsageActivity"
             android:exported="true"
