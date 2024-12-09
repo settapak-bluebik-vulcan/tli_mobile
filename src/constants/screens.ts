@@ -3,6 +3,10 @@ export enum UnAuthScreens {
   DEVTOOLS = 'DevToolsScreen',
 }
 
+export enum DevtoolScreens {
+  FITBIT = 'FitbitDevTools',
+}
+
 export enum AuthScreens {
   HOME = 'HomeScreen',
 }

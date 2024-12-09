@@ -1,4 +1,8 @@
-import { AuthScreens, UnAuthScreens } from '../constants/screens';
+import {
+  AuthScreens,
+  DevtoolScreens,
+  UnAuthScreens,
+} from '../constants/screens';
 
 export type AuthStackParamList = {
   [AuthScreens.HOME]: undefined;
@@ -7,4 +11,8 @@ export type AuthStackParamList = {
 export type UnAuthStackParamList = {
   [UnAuthScreens.LOGIN]: undefined;
   [UnAuthScreens.DEVTOOLS]: undefined;
+};
+
+export type DevToolsParamList = {
+  [DevtoolScreens.FITBIT]: undefined;
 };

@@ -7,13 +7,8 @@ import { useAuthStore } from '@stores';
 import { useTranslation } from 'react-i18next';
 
 function HomeScreen() {
-  const {
-    onPressDevtools,
-    onPressConnectFitbit,
-    removeTokens,
-    accessToken,
-    refreshToken,
-  } = useViewModel();
+  const { onPressDevtools, removeTokens, accessToken, refreshToken } =
+    useViewModel();
 
   const { t } = useTranslation();
 
@@ -36,12 +31,6 @@ function HomeScreen() {
         color="blue.200"
         onPress={() => onPressDevtools()}>
         Devtool
-      </Button>
-      <Button
-        variant="primary"
-        color="blue.200"
-        onPress={() => onPressConnectFitbit()}>
-        Connect fitbit
       </Button>
     </View>
   );
