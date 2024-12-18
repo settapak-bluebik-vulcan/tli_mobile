@@ -28,6 +28,14 @@ const secureStorage = {
       console.error('Failed to remove item from secure storage:', error);
     }
   },
+
+  clearStorage: async () => {
+    try {
+      await RNSecureStorage.clear();
+    } catch (error) {
+      console.error('Failed to clear secure storage:', error);
+    }
+  },
 };
 
 export default secureStorage;

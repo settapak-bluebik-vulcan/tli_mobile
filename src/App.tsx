@@ -26,6 +26,9 @@ import { initAPI } from './services/API';
 import i18nextConfig from './locales';
 import RootNavigation from './navigations/root-navigation';
 import ErrorBoundary from './components/share/error-boundary.tsx/error-boundary';
+import asyncStorage from './utils/async-storage';
+import { StorageKey } from '@constants';
+import secureStorage from './utils/secure-storage';
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -107,10 +110,24 @@ export default function App() {
       },
     },
   });
+  const handleFirstInitApp = async () => {
+    const isFirstInitApp = await asyncStorage.getItem(
+      StorageKey.IS_FIRST_INIT_APP
+    );
+
+    console.log({ isFirstInitApp });
+
+    if (isFirstInitApp === false) return;
+
+    secureStorage.clearStorage().then(() => {
+      asyncStorage.setItem(StorageKey.IS_FIRST_INIT_APP, false);
+    });
+  };
 
   const init = async () => {
     initAPI(Config.API_URL);
     await i18nextConfig.initalizeI18Next();
+    await handleFirstInitApp();
     setReady(true);
   };
 
