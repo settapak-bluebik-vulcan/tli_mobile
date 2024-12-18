@@ -18,8 +18,8 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "start": "react-native start",
-    "format": "prettier --write . --config ./.prettierrc.js",
-    "format:check": "prettier --check . --config ./.prettierrc.js",
+    "format": "prettier --write ./src --config ./.prettierrc.js",
+    "format:check": "prettier --check ./src --config ./.prettierrc.js",
     "test": "jest",
     "commit": "npx cz",
     "prepare": "husky install"

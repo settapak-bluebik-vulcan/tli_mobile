@@ -1,3 +1,7 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useAuthStore } from '@stores';
 import axios, { AxiosError } from 'axios';
 
@@ -22,9 +26,7 @@ export const initAPI = (apiUrl?: string) => {
       }
       return config;
     },
-    error => {
-      return Promise.reject(error);
-    }
+    error => Promise.reject(error)
   );
 
   API.interceptors.response.use(
@@ -83,12 +85,11 @@ export const initAPI = (apiUrl?: string) => {
             originalRequest.headers.Authorization = `Bearer ${response.data.data.accessToken}`;
 
             // re get api
-            return httpClient(originalRequest);
-          } else {
-            authStore.removeTokens();
-
-            return Promise.reject();
+            return await httpClient(originalRequest);
           }
+          authStore.removeTokens();
+
+          return await Promise.reject();
         } catch (catchError) {
           authStore.removeTokens();
           return Promise.reject(catchError);

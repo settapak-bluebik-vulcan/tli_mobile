@@ -9,8 +9,6 @@ import Config from 'react-native-config';
 const useViewModel = () => {
   const { removeTokens, accessToken, refreshToken } = useAuthStore();
 
-
-
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const onPressDevtools = () => {

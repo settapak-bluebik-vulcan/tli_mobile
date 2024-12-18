@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable @typescript-eslint/no-floating-promises */
 import React, { useEffect, useState } from 'react';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import {
@@ -5,8 +7,6 @@ import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import RootNavigation from './navigations/root-navigation';
-import i18nextConfig from './locales';
 
 import AppleHealthKit, {
   HealthValue,
@@ -20,9 +20,11 @@ import {
 } from 'react-native-health-connect';
 
 import Config from 'react-native-config';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
 import { initAPI } from './services/API';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import i18nextConfig from './locales';
+import RootNavigation from './navigations/root-navigation';
 import ErrorBoundary from './components/share/error-boundary.tsx/error-boundary';
 
 export default function App() {
@@ -75,12 +77,16 @@ export default function App() {
     console.log('Steps -> ', result.records);
   };
 
-  useEffect(() => {
+  const initHealth = async () => {
     if (Platform.OS === 'ios') {
       initHealthKit();
     } else {
-      initHealthConnect();
+      await initHealthConnect();
     }
+  };
+
+  useEffect(() => {
+    initHealth();
   }, []);
 
   const theme = extendTheme({

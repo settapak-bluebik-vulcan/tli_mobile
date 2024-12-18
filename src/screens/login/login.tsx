@@ -1,8 +1,8 @@
 import { View } from 'react-native';
 import React from 'react';
 import { Button } from 'native-base';
-import useViewModel from './viewmodel';
 import { useTranslation } from 'react-i18next';
+import useViewModel from './viewmodel';
 
 function LoginScreen() {
   const { onLogin } = useViewModel();

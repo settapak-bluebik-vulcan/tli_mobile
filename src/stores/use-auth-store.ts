@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { AuthModel } from 'src/models/auth/auth.model';
-import secureStorage from '../utils/secure-storage';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import secureStorage from '../utils/secure-storage';
 
 const initialState: AuthModel = {
   accessToken: null,

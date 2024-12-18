@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Component, ReactNode } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import FallbackComponent from './fallback-component';

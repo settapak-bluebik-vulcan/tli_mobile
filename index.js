@@ -5,4 +5,3 @@ import { startNetworkLogging } from 'react-native-network-logger';
 
 startNetworkLogging();
 AppRegistry.registerComponent(appName, () => App);
-

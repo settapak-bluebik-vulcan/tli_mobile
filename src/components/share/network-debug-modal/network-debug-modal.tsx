@@ -14,39 +14,6 @@ interface Props {
   onPress?: () => void;
 }
 
-const NetworkDebugModal = (props: Props) => {
-  const [isNetworkModalVisible, setIsNetworkVIsible] = useState(false);
-  const version = DeviceInfo.getVersion();
-  const buildNumber = DeviceInfo.getBuildNumber();
-
-  return (
-    <>
-      <Modal style={styles.modal} visible={isNetworkModalVisible}>
-        <SafeAreaView style={styles.contentContainer}>
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={() => setIsNetworkVIsible(false)}>
-            <Text style={styles.closeButtonTitle}>{'CLOSE'}</Text>
-          </TouchableOpacity>
-          <NetworkLogger />
-          <Text
-            style={styles.versionInside}>{`${version}(${buildNumber})`}</Text>
-        </SafeAreaView>
-      </Modal>
-
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => {
-          props.onPress && props.onPress();
-          setIsNetworkVIsible(true);
-        }}>
-        <Text style={styles.content}>{'Network Logs'}</Text>
-        <Text style={styles.version}>{`${version}(${buildNumber})`}</Text>
-      </TouchableOpacity>
-    </>
-  );
-};
-
 const styles = StyleSheet.create({
   modal: {
     margin: 0,
@@ -91,5 +58,40 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+function NetworkDebugModal({ onPress }: Props) {
+  const [isNetworkModalVisible, setIsNetworkVIsible] = useState(false);
+  const version = DeviceInfo.getVersion();
+  const buildNumber = DeviceInfo.getBuildNumber();
+
+  return (
+    <>
+      <Modal style={styles.modal} visible={isNetworkModalVisible}>
+        <SafeAreaView style={styles.contentContainer}>
+          <TouchableOpacity
+            style={styles.closeButton}
+            onPress={() => setIsNetworkVIsible(false)}>
+            <Text style={styles.closeButtonTitle}>CLOSE</Text>
+          </TouchableOpacity>
+          <NetworkLogger />
+          <Text
+            style={styles.versionInside}>{`${version}(${buildNumber})`}</Text>
+        </SafeAreaView>
+      </Modal>
+
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() => {
+          if (onPress) {
+            onPress();
+          }
+          setIsNetworkVIsible(true);
+        }}>
+        <Text style={styles.content}>Network Logs</Text>
+        <Text style={styles.version}>{`${version}(${buildNumber})`}</Text>
+      </TouchableOpacity>
+    </>
+  );
+}
 
 export default NetworkDebugModal;

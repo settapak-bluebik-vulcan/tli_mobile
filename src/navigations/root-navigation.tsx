@@ -9,8 +9,8 @@ import {
   UnAuthStackParamList,
 } from '@types';
 import { DevtoolScreens, UnAuthScreens } from '@constants';
-import AuthStack from './auth-stack';
 import { useAuthStore } from '@stores';
+import AuthStack from './auth-stack';
 import UnAuthStack from './un-auth-stack';
 import DevToolsScreen from '../screens/devtools/devtools-screen';
 import FitbitDevTool from '../screens/devtools/fitbit/fitbit-devtool';

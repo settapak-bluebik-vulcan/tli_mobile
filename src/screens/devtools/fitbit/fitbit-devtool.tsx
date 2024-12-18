@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native';
 import React from 'react';
-import useViewModel from './viewmodel';
 import { Button } from 'native-base';
+import useViewModel from './viewmodel';
 
-const FitbitDevTool = () => {
+function FitbitDevTool() {
   const { onPressConnectFitbit, onPressRevoke, fitbitAccessToken } =
     useViewModel();
   return (
@@ -25,6 +25,6 @@ const FitbitDevTool = () => {
       </View>
     </View>
   );
-};
+}
 
 export default FitbitDevTool;

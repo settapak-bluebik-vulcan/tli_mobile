@@ -6,7 +6,7 @@ const useViewModel = () => {
   const config = {
     clientId: Config.FITBIT_CLIENT_ID ?? '',
     clientSecret: Config.FITBIT_CLIENT_SECRET ?? '',
-    redirectUrl: Config.FITBIT_REDIRECT_URL ?? '', //note: path is required
+    redirectUrl: Config.FITBIT_REDIRECT_URL ?? '', // note: path is required
     scopes: ['activity', 'sleep', 'profile', 'weight', 'heartrate'],
     serviceConfiguration: {
       authorizationEndpoint: Config.FITBIT_AUTHORIZATION_ENDPOINT ?? '',
@@ -21,7 +21,7 @@ const useViewModel = () => {
   const onPressConnectFitbit = async () => {
     console.log('Config -> ', config);
     try {
-      if (fitbitRefreshToken != null && fitbitRefreshToken != '') {
+      if (fitbitRefreshToken != null && fitbitRefreshToken !== '') {
         const refreshedState = await refresh(config, {
           refreshToken: fitbitRefreshToken,
         });

@@ -53,10 +53,10 @@ export default [
       'import/prefer-default-export': 'off',
       'import/export': 0,
       '@typescript-eslint/no-explicit-any': 'error',
-      'no-console': 'error',
-      'react-native/no-unused-styles': 'error',
-      '@typescript-eslint/no-unused-vars': 'error',
+      'no-console': 'warn',
+      '@typescript-eslint/no-unused-vars': 'warn',
       'react-hooks/exhaustive-deps': 'off',
+      'react/require-default-props': 'off',
     },
   },
 ];

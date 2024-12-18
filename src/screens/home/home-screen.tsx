@@ -2,9 +2,9 @@ import { Text } from 'react-native';
 import React from 'react';
 import { Button, View } from 'native-base';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import useViewModel from './viewmodel';
 import { useAuthStore } from '@stores';
 import { useTranslation } from 'react-i18next';
+import useViewModel from './viewmodel';
 
 function HomeScreen() {
   const { onPressDevtools, removeTokens, accessToken, refreshToken } =
