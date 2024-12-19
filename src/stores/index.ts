@@ -1,2 +1,2 @@
-export * from './use-auth-store';
-export * from './fitbit-auth-store';
+export { useAuthStore } from './use-auth-store';
+export { useFitbitAuthStore } from './fitbit-auth-store';

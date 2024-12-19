@@ -1,0 +1,4 @@
+[submodule "packages/tli-up-packages"]
+	path = packages/tli-up-packages
+	url = https://github.com/PhoatipongMu/tli-up-packages.git
+	branch = main

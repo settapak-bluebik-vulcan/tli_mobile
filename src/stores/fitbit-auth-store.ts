@@ -1,30 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { AuthModel } from 'src/models/auth/auth.model';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { FitbitAuthModel } from 'src/models/auth/fitbit-auth.model';
+import { fitbitAuthStore } from '@tli-up-packages/stores';
 import secureStorage from '../utils/secure-storage';
 
-const initialState: FitbitAuthModel = {
-  fitbitAccessToken: null,
-  fitbitRefreshToken: null,
-};
-
-const authStore = (set: Function, get: Function) => ({
-  ...initialState,
-  getTokens: () => {
-    const value: FitbitAuthModel = get();
-    return value;
-  },
-  setTokens: (value: FitbitAuthModel) => {
-    set(value);
-  },
-
-  removeTokens: () => {
-    set(initialState);
-  },
-});
-
-export const fitbitAuthStore = create(
-  persist(authStore, { name: 'fitbitAuthStore', storage: secureStorage })
+export const useFitbitAuthStore = create(
+  persist(fitbitAuthStore, { name: 'fitbitAuthStore', storage: secureStorage })
 );

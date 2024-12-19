@@ -1,5 +1,5 @@
 import { useAuthStore } from '@stores';
-import { useAuthRepository } from '../../services/auth/auth.repository';
+import { useAuthRepository } from '../../services/auth/useAuthRepository';
 
 const useViewModel = () => {
   const { setTokens } = useAuthStore();

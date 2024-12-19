@@ -1,6 +1,6 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*","./packages/**/*"],
   "compilerOptions": {
     "jsx": "react",
     "baseUrl": ".",
@@ -13,6 +13,7 @@
       "@hooks": ["src/hooks"],
       "@types": ["src/types"],
       "@models": ["src/models"],
+      "@tli-up-packages/*": ["packages/tli-up-packages/*"]
     }
   }
 }

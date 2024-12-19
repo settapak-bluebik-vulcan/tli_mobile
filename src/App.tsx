@@ -19,9 +19,9 @@ import {
 import Config from 'react-native-config';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StorageKey } from '@constants';
+import { initAPI } from '@tli-up-packages/services/API';
+import i18nextConfig from '@tli-up-packages/locales/index';
 import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
-import { initAPI } from './services/API';
-import i18nextConfig from './locales';
 import RootNavigation from './navigations/root-navigation';
 import ErrorBoundary from './components/share/error-boundary.tsx/error-boundary';
 import asyncStorage from './utils/async-storage';

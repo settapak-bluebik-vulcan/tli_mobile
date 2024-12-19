@@ -22,7 +22,8 @@
     "format:check": "prettier --check ./src --config ./.prettierrc.js",
     "test": "jest",
     "commit": "npx cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "git submodule update --init --recursive --remote"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

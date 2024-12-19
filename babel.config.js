@@ -14,6 +14,7 @@ module.exports = {
           '@hooks': './src/hooks',
           '@types': './src/types',
           '@models': './src/models',
+          '@tli-up-packages': './packages/tli-up-packages',
         },
       },
     ],

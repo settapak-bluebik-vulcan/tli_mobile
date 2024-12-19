@@ -1,5 +1,5 @@
 import Config from 'react-native-config';
-import { fitbitAuthStore } from '@stores';
+import { useFitbitAuthStore } from '@stores';
 import { authorize, refresh, revoke } from 'react-native-app-auth';
 
 const useViewModel = () => {
@@ -16,7 +16,7 @@ const useViewModel = () => {
   };
 
   const { setTokens, fitbitAccessToken, fitbitRefreshToken, removeTokens } =
-    fitbitAuthStore();
+    useFitbitAuthStore();
 
   const onPressConnectFitbit = async () => {
     console.log('Config -> ', config);

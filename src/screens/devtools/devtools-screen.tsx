@@ -18,7 +18,7 @@ function DevToolsScreen() {
         onPress={() => {
           navigate.navigate(DevtoolScreens.FITBIT);
         }}>
-        Fitbit
+        Fitbitd
       </Button>
     </View>
   );
