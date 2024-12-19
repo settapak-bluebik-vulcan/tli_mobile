@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable no-console */
 import { StorageKey } from '@constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -41,9 +43,10 @@ const asyncStorage = {
   },
   multiSet: async <T>(storageValues: [string | StorageKey, T][]) => {
     try {
-      const values: [string, string][] = storageValues.map(([key, value]) => {
-        return [key, JSON.stringify(value)];
-      });
+      const values: [string, string][] = storageValues.map(([key, value]) => [
+        key,
+        JSON.stringify(value),
+      ]);
 
       await AsyncStorage.multiSet(values);
     } catch (error) {

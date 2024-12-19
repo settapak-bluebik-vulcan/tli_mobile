@@ -8,10 +8,7 @@ import {
 } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import AppleHealthKit, {
-  HealthValue,
-  HealthKitPermissions,
-} from 'react-native-health';
+import AppleHealthKit, { HealthKitPermissions } from 'react-native-health';
 import { Platform } from 'react-native';
 import {
   initialize,
@@ -21,13 +18,13 @@ import {
 
 import Config from 'react-native-config';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { StorageKey } from '@constants';
 import NetworkDebugModal from './components/share/network-debug-modal/network-debug-modal';
 import { initAPI } from './services/API';
 import i18nextConfig from './locales';
 import RootNavigation from './navigations/root-navigation';
 import ErrorBoundary from './components/share/error-boundary.tsx/error-boundary';
 import asyncStorage from './utils/async-storage';
-import { StorageKey } from '@constants';
 import secureStorage from './utils/secure-storage';
 
 export default function App() {
